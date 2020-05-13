@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-  <p>Email has sent</p>
+  <p>We added you in our contact list. Thank you.</p>
 @endsection
