@@ -53,7 +53,7 @@ class ContactController extends Controller
           'contact_number' => $request->contact_number,
       ]);
 
-      // Mail::to($request->email)->send(new NewContactNotification);
+      Mail::to($request->email)->send(new NewContactNotification);
 
       return redirect()->route('contacts.index')->with('status', 'Contact created successfully.');
     }

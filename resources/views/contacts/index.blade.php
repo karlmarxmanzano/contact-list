@@ -2,12 +2,17 @@
 
 @section('content')
 <div class="container justify-content-center">
-    <h1>Contact List</h1>
-    <a href="{{ route('contacts.create') }}" class="btn btn-primary">Add new contact</a>
+    <div>
+		
+	</div>
 
     <div class="row justify-content-center">
 
       <div class="col-md-8">
+
+		<h1 class="text-center">Contact List</h1>
+		<a href="{{ route('contacts.create') }}" class="btn btn-primary mb-4">Add new contact</a>
+		
           <form method="get" action="{{ route('search.result') }}" class="mr-auto d-flex">
             <input type="text" name="query" value="{{ isset($searchterm) ? $searchterm : ''  }}" class="form-control"  placeholder="Search First Name" aria-label="Search">
             <button class="btn btn-outline-primary ml-2" type="submit">Search</button>
@@ -44,9 +49,9 @@
                 <h5 class="card-title">{{ $contact->first_name }} {{ $contact->last_name }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ $contact->email }}</h6>
                 <p class="card-text">{{ $contact->contact_number }}</p>
-                <a href="{{ route('contacts.show', $contact) }}">View</a>
-                <a href="{{ route('contacts.edit', $contact) }}">Edit</a>
-                <a href="" class="btn btn-outline-danger btn-sm" role="button" onclick="event.preventDefault(); document.getElementById('delete-contact').submit();">
+                <a href="{{ route('contacts.show', $contact) }}" class="card-link">View</a>
+                <a href="{{ route('contacts.edit', $contact) }}" class="card-link">Edit</a>
+                <a href="" class="card-link text-danger" role="button" onclick="event.preventDefault(); document.getElementById('delete-contact').submit();">
                   Delete
                 </a>
                 <form id="delete-contact" action="{{ route('contacts.destroy', $contact) }}" method="post" style="display: none;">
@@ -74,6 +79,8 @@
       </div>
     @endforeach
 
-    {{$contacts->links()}}
+    <div class="row justify-content-center">
+      {{$contacts->links()}}
+    </div>
 </div>
 @endsection
