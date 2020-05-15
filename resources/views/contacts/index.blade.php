@@ -10,33 +10,10 @@
 
       <div class="col-md-8">
 
-		<h1 class="text-center">Contact List</h1>
+    <h1 class="text-center">Contact List</h1>
+    
 		<a href="{{ route('contacts.create') }}" class="btn btn-primary mb-4">Add new contact</a>
-		
-          <form method="get" action="{{ route('search.result') }}" class="mr-auto d-flex">
-            <input type="text" name="query" value="{{ isset($searchterm) ? $searchterm : ''  }}" class="form-control"  placeholder="Search First Name" aria-label="Search">
-            <button class="btn btn-outline-primary ml-2" type="submit">Search</button>
-          </form>
-          <br>
 
-
-          @if(isset($searchResults))
-              @if ($searchResults-> isEmpty())
-                  <h2>Sorry, no results found for the term <b>"{{ $searchterm }}"</b>.</h2>
-              @else
-                  <h2>There are {{ $searchResults->count() }} results for the term <b>"{{ $searchterm }}"</b></h2>
-                  <hr />
-                  @foreach($searchResults->groupByType() as $type => $modelSearchResults)
-                  <h2>{{ ucwords($type) }}</h2>
-  
-                  @foreach($modelSearchResults as $searchResult)
-                      <ul>
-                              <a href="{{ $searchResult->url }}">{{ $searchResult->title }}</a>
-                      </ul>
-                  @endforeach
-                  @endforeach
-              @endif
-          @endif
       </div>
   </div>
 
