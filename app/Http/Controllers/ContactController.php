@@ -55,7 +55,7 @@ class ContactController extends Controller
 
       Mail::to($request->email)->send(new NewContactNotification);
 
-      return redirect()->route('contacts.index')->with('status', 'Contact created successfully.');
+      return redirect()->route('contacts.index')->with('success', 'Contact created successfully.');
     }
 
     /**
@@ -96,7 +96,7 @@ class ContactController extends Controller
         'contact_number' => $request->contact_number,
       ]);
 
-    return redirect()->route('contacts.index')->with('status', 'Contact updated successfuly.');
+    return redirect()->route('contacts.index')->with('success', 'Contact updated successfuly.');
     }
 
     /**
@@ -109,6 +109,6 @@ class ContactController extends Controller
     {
       $contact->delete();
 
-      return redirect()->route('contacts.index')->with('status', 'Contact deleted successfully.');
+      return redirect()->route('contacts.index')->with('success', 'Contact deleted successfully.');
     }
 }

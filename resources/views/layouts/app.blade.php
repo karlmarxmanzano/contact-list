@@ -34,9 +34,8 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <!-- Left Side Of Navbar -->
                   <ul class="navbar-nav mr-auto">
-
+                    
                   </ul>
-                  
                   <!-- Right Side Of Navbar -->
                   <ul class="navbar-nav ml-auto">
                       <!-- Authentication Links -->
@@ -50,6 +49,9 @@
                               </li>
                           @endif
                       @else
+                          <div>
+                            <search-bar />
+                          </div>
                           <li class="nav-item dropdown">
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                   {{ Auth::user()->name }} <span class="caret"></span>
@@ -75,6 +77,13 @@
         @endauth
 
         <main class="py-4 vh-100">
+            <div class="container justify-content-center">
+				<div class="row justify-content-center">
+					<div class="col-md-8">
+						@include('layouts.message')
+					</div>
+				</div>
+            
             @yield('content')
         </main>
     </div>

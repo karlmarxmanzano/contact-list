@@ -23,5 +23,4 @@ Route::get('/home', 'ContactController@index')->name('home');
 
 Route::resource('contacts', 'ContactController');
 
-Route::get('search', 'SearchController@index')->name('search.index');
-Route::get('search-results', 'SearchController@search')->name('search.result');
+Route::get('search', 'SearchController@index');
